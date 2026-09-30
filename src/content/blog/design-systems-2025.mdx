@@ -1,0 +1,110 @@
+---
+title: "Design systems in 2025: less theory, more shipping"
+summary: "The design systems conversation has matured. Here's what actually works for teams between 10 and 100 people."
+date: "2025-08-28"
+author: "Studio Team"
+---
+
+Design systems used to be a status symbol. Companies with 8 employees would
+hire a "Design Systems Lead" and spend six months building tokens before
+shipping a single feature.
+
+In 2025, the conversation has matured. Here's what actually works.
+
+## Start smaller than you think
+
+The right first step is almost never "build a design system." It's:
+
+1. Pick **three** UI primitives your product uses everywhere (usually button, input, modal)
+2. Build them once, well, with docs
+3. Ship them
+4. Repeat
+
+A design system is a **habit**, not a project. Teams that try to boil the ocean
+end up with 200 half-built components and no adoption.
+
+## Tokens: yes, but keep them boring
+
+Design tokens are the vocabulary of your system. They should be:
+
+- **Named for purpose, not appearance** — `--color-danger`, not `--color-red`
+- **Semantic** — `--text-primary`, not `--gray-900`
+- **Few** — under 80 tokens for most products
+
+Avoid the temptation to token-ify everything. Every token is a decision
+someone has to make later.
+
+## Figma is not the source of truth
+
+Your design system's source of truth is **production code**. Figma is where
+you prototype. Code is what users see.
+
+The moment Figma and code diverge (and they will), trust dies. The fix isn't
+more sync tools — it's making code the reference and letting Figma follow.
+
+In practice:
+
+- Ship components from code
+- Figma library mirrors them (via plugins, or manually)
+- If they disagree, code wins
+
+## Radix + Tailwind: the modern default
+
+For most teams, the fastest path to a good design system in 2025 is:
+
+- **Radix primitives** — accessible, unstyled behavior (dialogs, menus, tooltips)
+- **Tailwind** — utility styling, no CSS files to maintain
+- **shadcn/ui** — a curated set of Radix + Tailwind components you copy into your repo
+
+You don't install shadcn — you **copy** it. Every component lives in your
+codebase, editable. No black boxes.
+
+This shifts the design system conversation from "which library" to "how do we
+adapt these to our brand."
+
+## Documentation is a product
+
+A design system without docs is a folder of components nobody knows how to use.
+
+Minimum viable docs for each component:
+
+- **When to use it** (and when not to)
+- **Live examples** of every variant
+- **Props table** — auto-generated
+- **Do / Don't** pairs
+- **Accessibility notes**
+
+Storybook remains the tool to beat. Ship Storybook to a URL. Link from your
+internal docs.
+
+## Measure adoption, not coverage
+
+A common trap: measuring the design system by **how many components it has**.
+The right metric is **how much of the product uses it**.
+
+Track:
+
+- % of pages/components using system primitives
+- Number of one-off CSS files (should trend to zero)
+- Time from Figma → production for a new pattern
+
+If adoption stalls, the system isn't the problem. **Trust** is. Investigate why
+teams are avoiding it.
+
+## What's changed in 2025
+
+Three meaningful shifts:
+
+1. **AI-assisted code gen** — design systems become the guardrails for AI-generated UI. If your tokens are clear, AI follows them.
+2. **Copy-paste over npm** — teams prefer owning components in-repo (shadcn model) over opaque packages.
+3. **Fewer, bigger components** — instead of 60 atomic pieces, teams ship 15 powerful, composable components.
+
+## The takeaway
+
+A design system isn't a project you finish. It's a practice you keep.
+
+Start with three components. Make code the source of truth. Document like a
+product. Measure adoption, not coverage.
+
+Do that for a year and you'll have something your team actually uses — not
+something gathering dust in a Figma file.

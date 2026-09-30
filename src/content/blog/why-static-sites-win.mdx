@@ -1,0 +1,93 @@
+---
+title: "Why static sites still win in 2025"
+summary: "Faster, cheaper, safer. Here's why we still reach for static exports on most marketing sites."
+date: "2025-09-12"
+author: "Studio Team"
+---
+
+Every few years, someone declares static sites dead. Then every few years,
+someone rediscovers that serving HTML from a CDN is really, really fast.
+
+Here's why we still reach for static exports on most marketing sites — and
+when we don't.
+
+## Speed is a feature
+
+A static site has no server round-trips for rendering. The HTML is
+pre-generated at build time and served from a CDN edge near your user.
+
+In practice, that means:
+
+- **First Contentful Paint** in under 500ms on a decent connection
+- **Largest Contentful Paint** rarely above 1s
+- Lighthouse scores in the high 90s without trying
+
+Compare that to a WordPress site with 40 plugins, or a dynamic React app that
+fetches data on every request. Users *feel* the difference.
+
+## Security is a feature
+
+No database. No auth. No server code. That's an entire class of vulnerabilities
+that simply doesn't exist.
+
+You can't SQL inject what isn't there. You can't exploit a server misconfiguration
+that doesn't exist. You can't leak credentials you never stored.
+
+For marketing sites — where 99% of the content is the same for every visitor —
+this is a no-brainer.
+
+## Cost is a feature
+
+Static sites are effectively free to host:
+
+- **Vercel:** free tier covers most marketing sites
+- **Netlify:** same
+- **Cloudflare Pages:** same, and CDN is included
+
+Compare to a typical WordPress host ($20–50/mo), a managed database ($15–30/mo),
+and a CDN ($10+/mo). We're talking about **$0 vs $50+ per month** for the same
+result.
+
+## What about dynamic content?
+
+Static doesn't mean boring. Modern tools blur the line:
+
+- **ISR (Incremental Static Regeneration)** on Vercel — static-by-default, revalidate on demand
+- **Client-side data** for things that must be live (search, personalization)
+- **Edge functions** for the small bits that need logic
+- **Public APIs** for anything read-only (weather, currency, stock)
+
+You get static performance with dynamic capability where it matters.
+
+## When we *don't* go static
+
+Static isn't always the answer. We reach for something dynamic when:
+
+- **Users generate content** — comments, posts, uploads
+- **Auth matters** — dashboards, admin panels
+- **Data changes constantly** — live collaboration, real-time feeds
+- **Personalization at scale** — A/B tests, recommendation engines
+
+In those cases, we still often split it: static marketing site + dynamic app
+on a subdomain.
+
+## The stack we use
+
+For most marketing sites:
+
+- **Next.js** — App Router, static export
+- **Tailwind + shadcn/ui** — styling
+- **MDX** — content
+- **Framer Motion** — subtle animation
+- **Vercel** — hosting
+
+Zero backend. Zero database. Zero maintenance.
+
+## Conclusion
+
+Static sites aren't a compromise. For the vast majority of marketing sites,
+they're the *right* answer: faster, cheaper, safer, and — with modern tooling —
+no less capable.
+
+If you're building a site that mostly reads the same for everyone, start
+static. You'll rarely regret it.

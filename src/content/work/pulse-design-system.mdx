@@ -1,0 +1,55 @@
+---
+title: "Pulse — Design System"
+client: "Pulse Health"
+summary: "A unified design system for a healthcare platform used by 40+ hospitals."
+year: "2025"
+tags: ["Design System", "Engineering", "Accessibility"]
+---
+
+## The challenge
+
+Pulse had grown from 3 engineers to 30 in 18 months. Every team built its own
+buttons, forms, and modals. The product looked like six different products.
+
+Healthcare meant **WCAG AA** compliance wasn't optional — it was a legal
+requirement.
+
+## What we did
+
+We built a two-part system:
+
+### 1. Figma library
+- Tokens (color, spacing, type, radius, shadow)
+- 60+ components with variants
+- Auto-layout everything, documented
+- Light + dark + high-contrast themes
+
+### 2. React component library
+- Published as `@pulse/ui` on private npm
+- Built on Radix primitives for accessibility
+- Fully typed, tree-shakeable
+- Storybook with usage examples
+
+We ran three training sessions with their engineering team and shipped a
+migration guide.
+
+## Accessibility
+
+Every component tested against:
+- WCAG 2.2 AA (contrast, focus, keyboard nav)
+- Screen readers (VoiceOver, NVDA)
+- 200% zoom, mobile, and reduced motion
+
+## The result
+
+- **~40% faster** feature delivery across teams
+- **Zero** new accessibility bugs in the 6 months post-launch
+- Designers and engineers now speak the same language
+- Onboarded 8 new engineers in the time it used to take to onboard 2
+
+> "It's the single highest-leverage thing we've done as a company." —
+> Priya Shah, Head of Design
+
+## Stack
+
+Figma · Radix UI · Tailwind · Storybook · TypeScript · npm

@@ -118,9 +118,23 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --border: 240 5.9% 90%;
+    --radius: 0.5rem;
   }
+  
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -128,3 +142,18 @@
     @apply font-sans;
   }
 }
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Prose for MDX */
+.prose-custom h1 { @apply text-4xl font-bold tracking-tight mt-8 mb-4; }
+.prose-custom h2 { @apply text-3xl font-semibold tracking-tight mt-10 mb-4; }
+.prose-custom h3 { @apply text-2xl font-semibold tracking-tight mt-8 mb-3; }
+.prose-custom p  { @apply text-lg leading-relaxed my-4 text-muted-foreground; }
+.prose-custom a  { @apply underline underline-offset-4 hover:text-foreground; }
+.prose-custom ul { @apply list-disc pl-6 my-4 space-y-2 text-muted-foreground; }
+.prose-custom ol { @apply list-decimal pl-6 my-4 space-y-2 text-muted-foreground; }
+.prose-custom code { @apply bg-muted px-1.5 py-0.5 rounded text-sm; }
+.prose-custom pre { @apply bg-muted p-4 rounded-lg overflow-x-auto my-6; }
+.prose-custom img { @apply rounded-lg my-6; }
+.prose-custom blockquote { @apply border-l-4 pl-4 italic my-6 text-muted-foreground; }

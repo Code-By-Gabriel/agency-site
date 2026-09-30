@@ -1,0 +1,46 @@
+---
+title: "The complete guide to Next.js static export"
+summary: "How to ship a fully static Next.js site — including MDX, forms, and deployment — with zero backend."
+date: "2025-07-20"
+author: "Studio Team"
+---
+
+Next.js is famous for being a full-stack framework. But it's also one of the
+best tools for **fully static sites** — no server, no database, no hosting bill.
+
+Here's how to do it right.
+
+## Why static export
+
+Static export (`output: 'export'`) generates plain HTML, CSS, and JS at build
+time. The result:
+
+- **Host anywhere** — Vercel, Netlify, Cloudflare Pages, S3, a $5 VPS
+- **Instant loads** — served from a CDN, no server round-trips
+- **Cheap or free** — static hosting is practically free
+- **Secure by default** — no server = no server exploits
+- **Version controlled** — the entire site is the repo
+
+## What you lose
+
+Static export disables several Next.js features:
+
+- **API routes** (`app/api/*`) — no server to run them
+- **Server Actions** — same reason
+- **Middleware** — no runtime
+- **Next/Image optimization** — no optimizer; use `unoptimized: true`
+- **ISR / revalidation** — the site is frozen at build time
+- **Dynamic routes without `generateStaticParams`** — must pre-render everything
+
+For a marketing site, none of these matter. For a real app, they often do.
+
+## The config
+
+```js
+// next.config.mjs
+const nextConfig = {
+  output: "export",
+  images: { unoptimized: true },
+  trailingSlash: true, // optional — helps with some hosts
+};
+export default nextConfig;
