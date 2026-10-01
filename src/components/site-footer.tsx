@@ -44,9 +44,12 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t">
-        <div className="container mx-auto px-4 py-6 text-xs text-muted-foreground flex justify-between">
+        <div className="container mx-auto px-4 py-6 text-xs text-muted-foreground flex justify-between flex-wrap gap-4">
           <span>© {new Date().getFullYear()} Studio. All rights reserved.</span>
-          <span>Built with Next.js</span>
+          <div className="flex gap-4">
+            <a href="/feed.xml" className="hover:text-foreground transition">RSS</a>
+            <span>Built with Next.js</span>
+          </div>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import GithubSlugger from "github-slugger";
 
 const WORK_DIR = path.join(process.cwd(), "src/content/work");
 const BLOG_DIR = path.join(process.cwd(), "src/content/blog");
@@ -24,6 +25,40 @@ export type BlogMeta = {
   author: string;
   readingTime: string;
 };
+
+export function extractToc(markdown: string) {
+  const slugger = new GithubSlugger();
+  return markdown
+    .split("\n")
+    .map((line) => /^(#{2,3})\s+(.+)$/.exec(line))
+    .filter(Boolean)
+    .map((m) => {
+      const level = m![1].length;
+      const text = m![2].replace(/[*_`]/g, "").trim();
+      return { level, text, id: slugger.slug(text) };
+    });
+}
+
+export function getRelatedPosts(slug: string, limit = 3): BlogMeta[] {
+  const all = getAllPosts();
+  const current = all.find((p) => p.slug === slug);
+  if (!current) return all.slice(0, limit);
+
+  const scored = all
+    .filter((p) => p.slug !== slug)
+    .map((p) => {
+      const sameDay = p.date === current.date ? 1 : 0;
+      const titleOverlap = p.title
+        .toLowerCase()
+        .split(/\W+/)
+        .filter((w) => w.length > 3 && current.title.toLowerCase().includes(w))
+        .length;
+      return { post: p, score: titleOverlap + sameDay };
+    })
+    .sort((a, b) => b.score - a.score);
+
+  return scored.slice(0, limit).map((s) => s.post);
+}
 
 function readDir(dir: string) {
   if (!fs.existsSync(dir)) return [];

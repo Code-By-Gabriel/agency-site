@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn, Stagger, StaggerItem } from "@/components/motion/fade-in";
 import { getAllWork } from "@/lib/mdx";
+import { WorkCard } from "@/components/work-card";
 
 export const metadata = {
   title: "Work",
@@ -26,25 +27,7 @@ export default function WorkPage() {
       <Stagger className="grid md:grid-cols-2 gap-6 mt-12">
         {work.map((w) => (
           <StaggerItem key={w.slug}>
-            <Link href={`/work/${w.slug}`} className="group block">
-              <Card className="overflow-hidden h-full transition group-hover:border-foreground/30">
-                <div className="aspect-video bg-muted" />
-                <CardContent className="p-6">
-                  <div className="text-xs text-muted-foreground mb-2">
-                    {w.client} · {w.year}
-                  </div>
-                  <h2 className="text-xl font-semibold">{w.title}</h2>
-                  <p className="text-sm text-muted-foreground mt-2">{w.summary}</p>
-                  <div className="flex gap-2 mt-4 flex-wrap">
-                    {w.tags?.map((t) => (
-                      <span key={t} className="text-xs rounded-full border px-2 py-0.5 text-muted-foreground">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+            <WorkCard work={w} />
           </StaggerItem>
         ))}
       </Stagger>

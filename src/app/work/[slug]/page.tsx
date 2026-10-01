@@ -4,6 +4,7 @@ import { getAllWork, getWorkBySlug } from "@/lib/mdx";
 import { mdxComponents } from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export async function generateMetadata({
   params,
@@ -54,6 +55,17 @@ export default async function WorkPost({
       <div className="prose-custom mt-12">
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
+      {post.meta.cover ? (
+        <div className="relative aspect-video rounded-lg overflow-hidden bg-muted mt-12">
+          <Image
+            src={post.meta.cover}
+            alt={post.meta.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      ) : null}
     </article>
   );
 }

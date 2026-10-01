@@ -27,18 +27,23 @@ export const metadata: Metadata = {
       "Design & engineering studio helping ambitious teams ship better products.",
   },
   icons: { icon: "/favicon.ico" },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-  <body>
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <SiteHeader />
-      <main>{children}</main>
-      <SiteFooter />
-    </ThemeProvider>
-  </body>
-</html>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

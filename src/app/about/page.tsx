@@ -1,4 +1,5 @@
 import { FadeIn } from "@/components/motion/fade-in";
+import { TeamGrid } from "@/components/team-grid";
 
 export const metadata = {
   title: "About",
@@ -31,6 +32,7 @@ export default function AboutPage() {
             <li>Design and engineering in the same room from day one.</li>
           </ul>
         </div>
+        <TeamGrid />
       </FadeIn>
     </section>
   );
