@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUp, Rss } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiGithub, SiX } from "react-icons/si";
 import { BsLinkedin } from "react-icons/bs";
-
 
 import { NewsletterForm } from "@/components/newsletter-form";
 import { LogoMark } from "@/components/logo-mark";
@@ -20,17 +19,9 @@ const columns = [
   {
     title: "Services",
     links: [
-      { href: "/services#design", label: "Design" },
-      { href: "/services#engineering", label: "Engineering" },
-      { href: "/services#strategy", label: "Strategy" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { href: "/blog", label: "Blog" },
-      { href: "/feed.xml", label: "RSS Feed" },
-      { href: "/sitemap.xml", label: "Sitemap" },
+      { href: "/services", label: "Design" },
+      { href: "/services", label: "Engineering" },
+      { href: "/services", label: "Strategy" },
     ],
   },
 ];
@@ -102,7 +93,7 @@ export function SiteFooter() {
 
           {/* Link columns */}
           {columns.map((col) => (
-            <div key={col.title} className="md:col-span-2">
+            <div key={col.title} className="md:col-span-3">
               <div className="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-4">
                 {col.title}
               </div>
@@ -124,8 +115,6 @@ export function SiteFooter() {
               </ul>
             </div>
           ))}
-
-
         </div>
       </div>
 
@@ -135,17 +124,7 @@ export function SiteFooter() {
           <span>
             © {new Date().getFullYear()} Studio. All rights reserved.
           </span>
-          <div className="flex items-center gap-5">
-            <Link
-              href="/feed.xml"
-              className="group inline-flex items-center gap-1.5 hover:text-foreground transition"
-            >
-              <Rss className="h-3.5 w-3.5" />
-              RSS
-            </Link>
-            <span className="hidden md:inline text-muted-foreground/60">·</span>
-            <span>Made by Studio</span>
-          </div>
+          <span>Made by Studio</span>
         </div>
       </div>
     </footer>

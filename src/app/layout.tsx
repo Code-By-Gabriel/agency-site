@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from 'next/font/google';
 import { BackToTop } from "@/components/back-to-top";
+import { Analytics } from "@vercel/analytics/react";
 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <SiteFooter />
           <BackToTop />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
