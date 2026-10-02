@@ -17,7 +17,7 @@ const services = [
   {
     icon: Palette,
     title: "Design",
-    desc: "Brand, UI/UX, design systems — the full visual language of your product.",
+    desc: "Brand, UI/UX, design systems - the full visual language of your product.",
     includes: [
       "Brand identity & guidelines",
       "Product & interface design",
@@ -135,7 +135,7 @@ export default function ServicesPage() {
           ))}
         </Stagger>
 
-        {/* ✅ Closing line — OUTSIDE the map, renders once */}
+        {/* Closing line - OUTSIDE the map, renders once */}
         <FadeIn delay={0.3}>
           <div className="mt-20 border-t pt-10 flex flex-wrap items-center justify-between gap-4">
             <p className="text-lg text-muted-foreground">

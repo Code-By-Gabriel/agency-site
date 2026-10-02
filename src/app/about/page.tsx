@@ -21,7 +21,7 @@ const principles = [
   },
   {
     title: "Fixed scope",
-    desc: "We scope projects up front — price, timeline, deliverables. No change orders, no surprises.",
+    desc: "We scope projects up front - price, timeline, deliverables. No change orders, no surprises.",
   },
   {
     title: "In the open",

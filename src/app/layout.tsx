@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"), // ← change this
   title: {
-    default: "Studio — Design & Engineering",
+    default: "Studio - Design & Engineering",
     template: "%s | Studio",
   },
   description:
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Studio",
-    title: "Studio — Design & Engineering",
+    title: "Studio - Design & Engineering",
     description:
       "Design & engineering studio helping ambitious teams ship better products.",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Studio — Design & Engineering",
+    title: "Studio - Design & Engineering",
     description:
       "Design & engineering studio helping ambitious teams ship better products.",
   },

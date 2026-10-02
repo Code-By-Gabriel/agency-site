@@ -127,7 +127,7 @@ export default async function WorkPost({
 
           {/* ─── RIGHT COLUMN (the story) ─── */}
           <div className="md:col-span-8 lg:col-span-9 min-w-0">
-            {/* Summary — acts as the hook */}
+            {/* Summary - acts as the hook */}
             <FadeIn>
               <p className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.02em] leading-[1.15] text-balance mb-16">
                 {m.summary}
@@ -137,7 +137,7 @@ export default async function WorkPost({
             {/* Hero image */}
             {m.cover ? (
               <FadeIn delay={0.15}>
-                <div className="relative aspect-[16/10] overflow-hidden rounded-xl border bg-muted mb-20">
+                <div className="relative aspect-16/10 overflow-hidden rounded-xl border bg-muted mb-20">
                   <Image
                     src={m.cover}
                     alt={m.title}

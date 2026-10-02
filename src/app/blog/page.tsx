@@ -33,7 +33,7 @@ export default function BlogPage() {
               </span>
             </h1>
             <p className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-              Occasional thoughts from the studio. No schedule, no SEO bait —
+              Occasional thoughts from the studio. No schedule, no SEO bait -
               just things we've learned.
             </p>
           </div>

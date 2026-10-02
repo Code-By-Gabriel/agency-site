@@ -21,7 +21,7 @@ export function ClientLogos() {
               Select clients
             </h3>
             <span className="text-base md:text-lg uppercase tracking-[0.25em] text-muted-foreground/60 hidden md:inline font-medium">
-              2022 — Present
+              2022 - Present
             </span>
           </div>
         </FadeIn>

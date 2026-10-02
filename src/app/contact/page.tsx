@@ -28,7 +28,7 @@ export default function ContactPage() {
               <span className="text-muted-foreground">you're building.</span>
             </h1>
             <p className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-              We reply within one business day — usually with questions,
+              We reply within one business day - usually with questions,
               sometimes with ideas.
             </p>
           </div>

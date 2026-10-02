@@ -16,7 +16,7 @@ const services = [
   {
     icon: Palette,
     title: "Design",
-    desc: "Brand, UI/UX, design systems — the full visual language of your product.",
+    desc: "Brand, UI/UX, design systems - the full visual language of your product.",
     includes: [
       "Brand identity & guidelines",
       "Product & interface design",
@@ -83,7 +83,7 @@ async function HomeContent() {
               <FadeIn delay={0.2}>
                 <p className="mt-10 text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-2xl leading-relaxed">
                   Fixed scope. Six weeks. Senior designers and engineers from
-                  day one — no handoffs, no juniors learning on your budget.
+                  day one - no handoffs, no juniors learning on your budget.
                 </p>
               </FadeIn>
 
@@ -293,7 +293,7 @@ async function HomeContent() {
 
               <div className="md:col-span-5 md:col-start-8 md:self-end flex flex-col gap-8">
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                  Tell us about your project. We reply within one business day —
+                  Tell us about your project. We reply within one business day -
                   usually with questions, sometimes with ideas.
                 </p>
 
