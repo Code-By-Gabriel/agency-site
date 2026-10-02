@@ -43,7 +43,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-2 text-3xl md:text-4xl font-bold tracking-tight"
+          className="mt-2 text-4xl md:text-5xl font-bold tracking-tight"
         >
           This page took a wrong turn.
         </motion.h1>
@@ -53,7 +53,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-4 text-lg text-muted-foreground max-w-md mx-auto"
+          className="mt-6 text-xl text-muted-foreground leading-relaxed max-w-md mx-auto"
         >
           The link might be broken, or the page was moved. Either way - let&apos;s
           get you back on track.
@@ -98,8 +98,8 @@ export default function NotFound() {
                 className="group rounded-lg border bg-card p-4 text-left transition hover:border-foreground/30 hover:bg-accent"
               >
                 <link.icon className="h-4 w-4 mb-3 text-muted-foreground group-hover:text-foreground transition" />
-                <div className="text-sm font-medium">{link.label}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">
+                <div className="text-base font-medium">{link.label}</div>
+                <div className="text-base text-muted-foreground mt-0.5">
                   {link.desc}
                 </div>
               </Link>
@@ -112,7 +112,7 @@ export default function NotFound() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 text-xs text-muted-foreground"
+          className="mt-12 text-base text-muted-foreground"
         >
           Think this is a mistake?{" "}
           <Link

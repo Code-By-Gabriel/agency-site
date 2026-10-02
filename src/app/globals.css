@@ -46,7 +46,21 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
 }
+
 
 :root {
   --background: oklch(1 0 0);
@@ -81,6 +95,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --header-offset: 6rem;
 }
 
 .dark {
@@ -128,32 +143,101 @@
     --border: 240 5.9% 90%;
     --radius: 0.5rem;
   }
-  
+
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground antialiased; }
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 
   body {
     @apply bg-background text-foreground;
+    font-size: 1rem;
+    /* 17px */
+    line-height: 1.6;
   }
+
   html {
     @apply font-sans;
+    font-size: 15px;
   }
 }
+
 /* Smooth scroll */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: var(--header-offset);
+}
+
 
 /* Prose for MDX */
-.prose-custom h1 { @apply text-4xl font-bold tracking-tight mt-8 mb-4; }
-.prose-custom h2 { @apply text-3xl font-semibold tracking-tight mt-10 mb-4; }
-.prose-custom h3 { @apply text-2xl font-semibold tracking-tight mt-8 mb-3; }
-.prose-custom p  { @apply text-lg leading-relaxed my-4 text-muted-foreground; }
-.prose-custom a  { @apply underline underline-offset-4 hover:text-foreground; }
-.prose-custom ul { @apply list-disc pl-6 my-4 space-y-2 text-muted-foreground; }
-.prose-custom ol { @apply list-decimal pl-6 my-4 space-y-2 text-muted-foreground; }
-.prose-custom code { @apply bg-muted px-1.5 py-0.5 rounded text-sm; }
-.prose-custom pre { @apply bg-muted p-4 rounded-lg overflow-x-auto my-6; }
-.prose-custom img { @apply rounded-lg my-6; }
-.prose-custom blockquote { @apply border-l-4 pl-4 italic my-6 text-muted-foreground; }
+.prose-custom h1 {
+  @apply text-4xl md:text-5xl font-bold tracking-tight mt-12 mb-6 leading-tight;
+}
+
+.prose-custom h2 {
+  @apply text-3xl md:text-4xl font-semibold tracking-tight mt-14 mb-5 leading-tight;
+}
+
+.prose-custom h3 {
+  @apply text-2xl md:text-3xl font-semibold tracking-tight mt-10 mb-4;
+}
+
+.prose-custom p {
+  @apply text-lg leading-relaxed my-5 text-muted-foreground;
+}
+
+.prose-custom a {
+  @apply underline underline-offset-4 hover:text-foreground;
+}
+
+.prose-custom ul {
+  @apply list-disc pl-6 my-5 space-y-3 text-lg text-muted-foreground;
+}
+
+.prose-custom ol {
+  @apply list-decimal pl-6 my-5 space-y-3 text-lg text-muted-foreground;
+}
+
+.prose-custom li {
+  @apply leading-relaxed;
+}
+
+.prose-custom code {
+  @apply bg-muted px-2 py-1 rounded text-base;
+}
+
+.prose-custom pre {
+  @apply bg-muted p-6 rounded-lg overflow-x-auto my-8;
+}
+
+.prose-custom pre code {
+  @apply bg-transparent p-0 text-base;
+}
+
+.prose-custom img {
+  @apply rounded-lg my-8;
+}
+
+.prose-custom blockquote {
+  @apply border-l-4 pl-6 italic my-8 text-lg text-muted-foreground;
+}
+
+.prose-custom strong {
+  @apply font-semibold text-foreground;
+}

@@ -15,6 +15,8 @@ export type WorkMeta = {
   year: string;
   tags: string[];
   cover?: string;
+  featured?: boolean;
+  featuredOrder?: number;
 };
 
 export type BlogMeta = {
@@ -73,6 +75,18 @@ export function getAllWork(): WorkMeta[] {
       return { slug, ...(data as Omit<WorkMeta, "slug">) };
     })
     .sort((a, b) => (a.year < b.year ? 1 : -1));
+}
+
+export function getFeaturedWork(limit = 3): WorkMeta[] {
+  const all = getAllWork();
+  const featured = all
+    .filter((w) => w.featured)
+    .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99));
+
+  if (featured.length >= limit) return featured.slice(0, limit);
+
+  const fill = all.filter((w) => !w.featured).slice(0, limit - featured.length);
+  return [...featured, ...fill];
 }
 
 export function getWorkBySlug(slug: string) {

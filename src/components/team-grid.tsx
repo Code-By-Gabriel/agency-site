@@ -38,8 +38,8 @@ export function TeamGrid() {
   return (
     <section className="container mx-auto px-4 py-20 border-t">
       <div className="max-w-2xl">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Team</h2>
-        <p className="mt-3 text-muted-foreground">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Team</h2>
+        <p className="mt-4 text-xl text-muted-foreground leading-relaxed max-w-2xl">
           A small senior team. No handoffs, no juniors learning on your dime.
         </p>
       </div>

@@ -5,8 +5,8 @@ import type { WorkMeta } from "@/lib/mdx";
 
 export function WorkCard({ work }: { work: WorkMeta }) {
   return (
-    <Link href={`/work/${work.slug}`} className="group block">
-      <Card className="h-full overflow-hidden transition group-hover:border-foreground/30">
+    <Link href={`/work/${work.slug}`} className="group block h-full">
+      <Card className="h-full overflow-hidden transition group-hover:border-foreground/30 py-0 gap-0">
         <div className="relative aspect-video overflow-hidden bg-muted">
           {work.cover ? (
             <Image
@@ -19,17 +19,21 @@ export function WorkCard({ work }: { work: WorkMeta }) {
           ) : null}
         </div>
         <CardContent className="p-6">
-          <div className="text-xs text-muted-foreground mb-2">
+          <div className="text-sm text-muted-foreground mb-2">
             {work.client} · {work.year}
           </div>
-          <h3 className="text-lg font-semibold">{work.title}</h3>
-          <p className="text-sm text-muted-foreground mt-2">{work.summary}</p>
+          <h3 className="text-xl font-semibold group-hover:underline underline-offset-4">
+            {work.title}
+          </h3>
+          <p className="text-base text-muted-foreground mt-3 leading-relaxed">
+            {work.summary}
+          </p>
           {work.tags?.length ? (
-            <div className="flex gap-2 mt-4 flex-wrap">
+            <div className="flex gap-2 mt-5 flex-wrap">
               {work.tags.map((t) => (
                 <span
                   key={t}
-                  className="text-xs rounded-full border px-2 py-0.5 text-muted-foreground"
+                  className="text-sm rounded-full border px-3 py-1 text-muted-foreground"
                 >
                   {t}
                 </span>
