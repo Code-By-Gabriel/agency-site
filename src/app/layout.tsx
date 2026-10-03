@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from 'next/font/google';
 import { BackToTop } from "@/components/back-to-top";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteFooter />
           <BackToTop />
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
